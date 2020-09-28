@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Raleway&family=Rokkitt:wght@500&display=swap");
+body {
+  margin: 0;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% 70% 15%;
+      grid-template-columns: 15% 70% 15%;
+  grid-auto-rows: 4;
+}
+
+.menu {
+  grid-column: span 3;
+  background-color: #F0C0AA;
+  font-family: "Rokkitt", serif;
+  font-size: 1.2rem;
+}
+
+.menu__list {
+  height: 2.5rem;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 15%;
+}
+
+.banner {
+  grid-column: span 3;
+  background-image: url("../assets/banner.png");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 400px;
+  color: #386E72;
+}
+
+.banner__main-title {
+  font-family: "Rokkitt", serif;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.banner__subtitle {
+  font-family: "Rokkitt", serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.content {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: 4;
+}
+
+.about {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+}
+
+.about__text-box {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.about__text {
+  font-family: "Raleway", sans-serif;
+}
+
+.about__title {
+  font-family: "Rokkitt", serif;
+}
+
+.about__img-box {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.about__img {
+  width: 60%;
+}
+
+.projects {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+}
+
+.projects__box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  grid-gap: 30px;
+}
+
+.projects__img-box {
+  margin: 0;
+}
+
+.projects__img {
+  width: 100%;
+}
+
+.contact {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+}
+
+.instagram {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+}
+
+.instagram__img-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (25%)[4];
+      grid-template-columns: repeat(4, 25%);
+  grid-gap: 10px;
+}
+
+.instagram__img {
+  width: 100%;
+}
+
+.footer {
+  grid-column: span 3;
+}
+/*# sourceMappingURL=main.css.map */

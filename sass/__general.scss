@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Raleway&family=Rokkitt:wght@500&display=swap');
+
+$dark_color: #386E72;
+$basic_blue: #95C5C8;
+$contrast_color: #F0C0AA;
+
+$handwriting_font: 'Caveat', cursive;
+$basic_font: 'Raleway', sans-serif;
+$title_font: 'Rokkitt', serif;
+
+$title_big_size: 4rem;
+$title_basic_size: 1.8rem;
+$plain_text_size: 1rem;
+$menu_size: 1.2rem;
+
+@mixin plain_text {
+    font-family: $basic_font;
+    font-size: $plain_text_size;
+}
+
+@mixin title {
+    font-family: $title_font;
+    font-size: $title_basic_size;
+}
+
+@mixin main_title {
+    font-family: $title_font;
+    font-size: $title_big_size;
+}
+
+
