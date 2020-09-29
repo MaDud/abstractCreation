@@ -21,7 +21,8 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0 15%
+        margin: 0 15%;
+        padding: 0
     }
 }
 
@@ -55,20 +56,43 @@ body {
 .about {
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    margin: 2rem 0;
     &__text-box {
         grid-column: 1;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
     }
     &__text {
-        font-family: $basic_font
+        @include plain_text
     }
     &__title {
         font-family: $title_font;
+        border-bottom: 2px solid $contrast_color;
+    }
+    &__contact {
+        align-self: center;
+        width: 50%;
+        height: 3rem;
+        background-color: $contrast_color;
+        font-family: $title_font;
+        font-size: $menu_size;
+        color: $dark_color;
+        border:none;
+        margin: 5% 0;
+        padding: 5px 20px;
+        border-radius: 5px;
+        &:hover {
+            background-color: $dark_color;
+            color: $basic_blue;
+        }
     }
     &__img-box {
-        grid-column: 2
+        grid-column: 2;
+        text-align: center;
     }    
     &__img {
-        width: 60%;
+        width: 50%;
     }
 }
 
