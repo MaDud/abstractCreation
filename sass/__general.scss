@@ -9,18 +9,20 @@ $basic_font: 'Raleway', sans-serif;
 $title_font: 'Rokkitt', serif;
 
 $title_big_size: 4rem;
-$title_basic_size: 2rem;
+$title_basic_size: 1.5rem;
 $plain_text_size: 0.9rem;
 $menu_size: 1.2rem;
 
 @mixin plain_text {
     font-family: $basic_font;
     font-size: $plain_text_size;
+    text-align: justify;
 }
 
 @mixin title {
     font-family: $title_font;
     font-size: $title_basic_size;
+    color: $dark_color
 }
 
 @mixin main_title {

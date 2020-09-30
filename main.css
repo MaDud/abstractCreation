@@ -8,7 +8,8 @@ body {
   display: grid;
   -ms-grid-columns: 15% 70% 15%;
       grid-template-columns: 15% 70% 15%;
-  grid-auto-rows: 4;
+  -ms-grid-rows: 2.5rem 400px (auto)[5];
+      grid-template-rows: 2.5rem 400px repeat(5, auto);
 }
 
 .menu {
@@ -16,22 +17,22 @@ body {
   background-color: #F0C0AA;
   font-family: "Rokkitt", serif;
   font-size: 1.2rem;
+  color: #386E72;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .menu__list {
-  height: 2.5rem;
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 15%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  justify-items: center;
   padding: 0;
+  margin: 0 12%;
 }
 
 .banner {
@@ -39,17 +40,9 @@ body {
   background-image: url("../assets/banner.png");
   background-position: center;
   background-size: cover;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  place-content: center center;
   height: 400px;
   color: #386E72;
 }
@@ -62,19 +55,15 @@ body {
 
 .banner__subtitle {
   font-family: "Rokkitt", serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: #386E72;
   margin: 0;
-}
-
-.content {
-  -ms-grid-column: 2;
-  grid-column: 2;
-  display: -ms-grid;
-  display: grid;
-  grid-auto-rows: 4;
+  text-align: center;
 }
 
 .about {
+  -ms-grid-column: 2;
+  grid-column: 2;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (50%)[2];
@@ -85,30 +74,29 @@ body {
 .about__text-box {
   -ms-grid-column: 1;
   grid-column: 1;
-  text-align: justify;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
 }
 
 .about__text {
   font-family: "Raleway", sans-serif;
   font-size: 0.9rem;
+  text-align: justify;
 }
 
 .about__title {
   font-family: "Rokkitt", serif;
-  border-bottom: 2px solid #F0C0AA;
+  font-size: 1.5rem;
+  color: #386E72;
+  border-bottom: 4px solid #F0C0AA;
+  padding-left: 10px;
 }
 
 .about__contact {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   width: 50%;
   height: 3rem;
   background-color: #F0C0AA;
@@ -129,48 +117,190 @@ body {
 .about__img-box {
   -ms-grid-column: 2;
   grid-column: 2;
-  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  place-items: center center;
+  position: relative;
 }
 
 .about__img {
+  width: 35%;
+  z-index: 3;
+  padding-top: 15px;
+  padding-right: 10px;
+}
+
+.about__symbol-img {
+  position: absolute;
+}
+
+.about__symbol-img--0 {
   width: 50%;
+  top: 0;
+  right: 0;
+}
+
+.about__symbol-img--1 {
+  width: 40%;
+  bottom: 0;
+  left: 0;
 }
 
 .projects {
+  margin: 2rem 0;
+  -ms-grid-column: 2;
+  grid-column: 2;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (auto)[2];
       grid-template-rows: repeat(2, auto);
 }
 
+.projects__text-box {
+  padding: 0 0 1rem 0;
+}
+
+.projects__title {
+  font-family: "Rokkitt", serif;
+  font-size: 1.5rem;
+  color: #386E72;
+}
+
+.projects__text {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
 .projects__box {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
-  grid-gap: 30px;
+  -ms-grid-columns: (28%)[3];
+      grid-template-columns: repeat(3, 28%);
+  grid-gap: 8%;
 }
 
 .projects__img-box {
   margin: 0;
 }
 
-.projects__img {
+.projects__img-box .projects__img {
   width: 100%;
 }
 
+.projects__img-box .projects__figcaption {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem;
+  text-align: justify;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 1rem 0;
+}
+
 .contact {
+  margin: 2rem 0;
+  -ms-grid-column: 2;
+  grid-column: 2;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (50%)[2];
       grid-template-columns: repeat(2, 50%);
 }
 
+.contact__img-box {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.contact__img-box .contact__img {
+  width: 100%;
+}
+
+.contact__text {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 4.3rem 10% auto 10%;
+      grid-template-rows: 4.3rem 10% auto 10%;
+}
+
+.contact__text .contact__title {
+  text-align: right;
+  font-family: "Rokkitt", serif;
+  font-size: 1.5rem;
+  color: #386E72;
+  border-bottom: 4px solid #F0C0AA;
+  padding-right: 10px;
+}
+
+.contact__text .contact__form {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 3.5rem auto 5rem;
+      grid-template-rows: 3.5rem auto 5rem;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  justify-items: center;
+  margin: 0 20%;
+}
+
+.contact__text .contact__input {
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: solid 1px #386E72;
+  padding: 5px 10px;
+}
+
+.contact__text .contact__form-mail {
+  height: 2rem;
+}
+
+.contact__text .contact__form-message {
+  height: auto;
+}
+
+.contact__text .contact__form-submit-btn {
+  width: calc(100% + 20px);
+  -ms-grid-column-align: center;
+      justify-self: center;
+  height: 3rem;
+  background-color: #F0C0AA;
+  font-family: "Rokkitt", serif;
+  font-size: 1.2rem;
+  color: #386E72;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.contact__text .contact__form-submit-btn:hover {
+  background-color: #386E72;
+  color: #95C5C8;
+}
+
 .instagram {
+  margin: 2rem 0;
+  -ms-grid-column: 2;
+  grid-column: 2;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (auto)[2];
       grid-template-rows: repeat(2, auto);
+}
+
+.instagram__title {
+  font-family: "Rokkitt", serif;
+  font-size: 1.5rem;
+  color: #386E72;
+}
+
+.instagram__title .instagram__color-title {
+  color: #F0C0AA;
 }
 
 .instagram__img-box {
@@ -187,5 +317,8 @@ body {
 
 .footer {
   grid-column: span 3;
+  margin-top: 2rem;
+  height: 100px;
+  background-color: #95C5C8;
 }
 /*# sourceMappingURL=main.css.map */
