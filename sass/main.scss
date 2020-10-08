@@ -1,13 +1,40 @@
 @import '__general.scss';
 
+html {
+    font-size: 18px;
+    @include mq(desktop) {
+        font-size: 16px;
+    }
+    @include mq(tablet) {
+        font-size: 16px;
+    }
+    @include mq(smartphone) {
+        font-size: 15px;
+    }
+}
+
 body {
     margin: 0
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 2.5rem 400px repeat(5, auto);
+    grid-template-columns: auto 1280px auto;
+    grid-template-rows: 2.5rem 25rem repeat(5, auto);
+
+    @include mq(desktop) {
+        grid-template-columns: auto 1024px auto;
+    }
+    
+    @include mq(tablet) {
+        grid-template-columns: auto minmax(640px, 800px) auto;
+        grid-template-rows: 2.5rem 20rem repeat(5, auto);
+    }
+    
+    @include mq(smartphone) {
+        grid-template-columns: auto;
+        grid-template-rows: 2.5rem 15rem repeat(5, auto);
+    }
 }
 
 .menu {
@@ -24,7 +51,7 @@ body {
         grid-template-columns: repeat(4, auto);
         justify-items: center;
         padding: 0;
-        margin: 0 12%;
+        margin: 0 10%;
     }
 }
 
@@ -35,8 +62,14 @@ body {
     background-size: cover;
     display: grid;
     place-content: center center;
-    height: 400px;
+    height: 25rem;
     color: $dark_color;
+    @include mq(tablet) {
+        height: 20rem;
+    }
+    @include mq(smartphone) {
+        height: 15rem;
+    }
     &__main-title {
         @include main_title;
         margin: 0
@@ -48,52 +81,73 @@ body {
     }
 }
 
-.about {
+.about, .projects, .contact, .instagram {
     grid-column: 2;
     display: grid;
+    margin: $tb_margin $rl_margin;
+}
+
+.about {
     grid-template-columns: repeat(2, 50%);
-    margin: 2rem 0;
-    &__text-box {
-        grid-column: 1;
-        display: grid;
-        grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    @include mq(tablet) {
+        grid-template-columns: 100%;
     }
+
     &__text {
-        @include plain_text
+        @include plain_text;
+        grid-column: 1;
     }
     &__title {
         @include title;
+        grid-row: 1;
         border-bottom: 4px solid $contrast_color;
         padding-left: 10px
     }
     &__contact {
+        grid-row: 5;
         justify-self: center;
-        width: 50%;
+        width: 15rem;
         height: 3rem;
         background-color: $contrast_color;
         font-family: $title_font;
         font-size: $menu_size;
         color: $dark_color;
         border:none;
-        margin: 5% 0;
+        margin: 1rem 0;
         padding: 5px 20px;
         border-radius: 5px;
         &:hover {
             background-color: $dark_color;
             color: $basic_blue;
         }
+
+        @include mq(tablet) {
+            margin-bottom: 0
+        }
     }
     &__img-box {
         grid-column: 2;
+        grid-row: 1/6;
         display: grid;
         place-items: center center;
-        position: relative
+        position: relative;
+
+        @include mq(tablet) {
+            margin: 1rem 0;
+            grid-column:1;
+            grid-row: 2;
+        };
     }    
     &__img {
-        width: 35%;
+        width: 14rem;
         z-index: 3;
         padding-top: 15px;
         padding-right: 10px;
+
+        @include mq(smartphone) {
+            width: 10rem;
+        }
     }
 
     &__symbol-img {
@@ -101,28 +155,48 @@ body {
     }
 
     &__symbol-img--0 {
-        width: 50%;
+        width: 18rem;
         top:0;
         right: 0;
+
+        @include mq(tablet) {
+            right: 5rem;
+            top: -1rem
+        };
+
+        @include mq(smartphone) {
+            width: 16rem;
+            right: -1rem;
+        }
     }
 
     &__symbol-img--1 {
-        width: 40%;
+        width: 15rem;
         bottom:0;
         left: 0;
+
+        @include mq(tablet) {
+            left: 5rem;
+            bottom: -1rem;
+        };
+
+        @include mq(smartphone) {
+            width: 13rem;
+            left: -1rem;
+        }
     }
 }
 
 .projects {
-    margin: 2rem 0;
-    grid-column: 2;
-    display: grid;
     grid-template-rows: repeat(2, auto);
     &__text-box {
         padding: 0 0 1rem 0;
     }
     &__title {
-        @include title
+        @include title;
+        @include mq(smartphone) {
+            border-bottom: 4px solid $contrast_color;
+        }
     }
     &__text {
         @include plain_text
@@ -130,12 +204,25 @@ body {
     &__box {
         display: grid;
         grid-template-columns: repeat(3, 28%);
-        grid-gap: 8%
+        grid-gap: 8%;
+        @include mq(smartphone) {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(3, auto);
+            grid-gap: 1rem
+        }
     }
     &__img-box {
         margin: 0;
+        @include mq(smartphone) {
+            display: grid;
+            grid-template-rows: auto auto;
+        }
         .projects__img {
             width: 100%;
+            @include mq(smartphone) {
+                width: 70%;
+                margin: 0 auto
+            }
         }
         .projects__figcaption {
             @include plain_text;
@@ -147,10 +234,10 @@ body {
 }
 
 .contact {
-    margin: 2rem 0;
-    grid-column: 2;
-    display: grid;
     grid-template-columns: repeat(2, 50%);
+    @include mq(smartphone) {
+        grid-template-columns: 100%;
+    }
     &__img-box {
         display: inline-block;
         margin: 0;
@@ -158,10 +245,13 @@ body {
         .contact__img {
             width: 100%;
         }
+        @include mq(smartphone) {
+            display: none;
+        }
     }
     &__text {
         display: grid;
-        grid-template-rows: 4.3rem 10% auto 10%;
+        grid-template-rows: 4.3rem auto;
         .contact__title {
             text-align: right;
             @include title;
@@ -169,12 +259,18 @@ body {
             padding-right: 10px;
         }
         .contact__form {
-            grid-row: 3;
+            grid-row: 2;
             display: grid;
             grid-template-rows: 3.5rem auto 5rem;
             grid-template-columns: auto;
             justify-items: center;
-            margin: 0 20%;
+            margin: 2rem 5rem;
+            @include mq(tablet) {
+                margin: 0 2rem;
+            }
+            @include mq(smartphone) {
+                margin: 0 1.5rem;
+            }
         }
 
         .contact__input {
@@ -189,6 +285,9 @@ body {
         }
         .contact__form-message {
             height: auto;
+            @include mq(smartphone) {
+                height: 10rem;
+            }
         }
         .contact__form-submit-btn {
             width: calc(100% + 20px);
@@ -211,10 +310,8 @@ body {
 }
 
 .instagram {
-    margin: 2rem 0;
-    grid-column: 2;
-    display: grid;
     grid-template-rows: repeat(2, auto);
+
     &__title {
         @include title;
         .instagram__color-title {
@@ -224,17 +321,28 @@ body {
     &__img-box {
         display: grid;
         grid-template-columns: repeat(4, 25%);
-        grid-gap: 10px
+        grid-gap: 10px;
+        @include mq(tablet) {
+            grid-template-columns: repeat(2, 50%)
+        }
     }
     &__img {
-        width: 100%
+        width: 100%;
+        @include mq(tablet) {
+            @for $img from 5 through 8 {
+                &:nth-child(#{$img}) {
+                    display: none;
+                }
+            }
+        }
     }
 }
 
 
 .footer {
     grid-column: span 3;
-    margin-top: 2rem;
+    margin-top: $tb_margin;
     height: 100px;
     background-color: $basic_blue;
 }
+

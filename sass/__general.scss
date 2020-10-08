@@ -9,9 +9,31 @@ $basic_font: 'Raleway', sans-serif;
 $title_font: 'Rokkitt', serif;
 
 $title_big_size: 4rem;
-$title_basic_size: 1.5rem;
-$plain_text_size: 0.9rem;
-$menu_size: 1.2rem;
+$title_basic_size: 1.6rem;
+$plain_text_size: 1rem;
+$menu_size: 1.2em;
+
+$rl_margin: 1rem;
+$tb_margin: 1rem;
+
+$breakpoints: (
+    smartphone: (max-width: 640px),
+    tablet: (max-width: 1050px),
+    desktop: (max-width: 1280px),
+   
+);
+
+@mixin mq($breakpoint) {
+    $size: map-get($map: $breakpoints, $key: $breakpoint);
+
+    @if($size) {
+        @media #{$size} {
+            @content;
+        };
+    } @else {
+        @error 'Not exist'
+    };
+};
 
 @mixin plain_text {
     font-family: $basic_font;
