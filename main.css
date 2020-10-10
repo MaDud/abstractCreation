@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Raleway&family=Rokkitt:wght@500&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 html {
   font-size: 18px;
 }
@@ -71,6 +72,18 @@ body {
       align-content: center;
 }
 
+.menu__bar {
+  display: none !important;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+@media (max-width: 640px) {
+  .menu__bar {
+    display: inline-block !important;
+  }
+}
+
 .menu__list {
   list-style-type: none;
   display: -ms-grid;
@@ -82,9 +95,15 @@ body {
   margin: 0 10%;
 }
 
+@media (max-width: 640px) {
+  .menu__list {
+    display: none;
+  }
+}
+
 .banner {
   grid-column: span 3;
-  background-image: url("../assets/banner.png");
+  background-image: url("~/../assets/banner.png");
   background-position: center;
   background-size: cover;
   display: -ms-grid;
@@ -103,12 +122,15 @@ body {
 @media (max-width: 640px) {
   .banner {
     height: 15rem;
+    background-image: none;
+    background-color: #95C5C8;
   }
 }
 
 .banner__main-title {
   font-family: "Rokkitt", serif;
   font-size: 4rem;
+  text-align: center;
   margin: 0;
 }
 
@@ -243,7 +265,7 @@ body {
 @media (max-width: 640px) {
   .about__symbol-img--0 {
     width: 16rem;
-    right: -1rem;
+    right: 0;
   }
 }
 
@@ -263,7 +285,7 @@ body {
 @media (max-width: 640px) {
   .about__symbol-img--1 {
     width: 13rem;
-    left: -1rem;
+    left: 0;
   }
 }
 
